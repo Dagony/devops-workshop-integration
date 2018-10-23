@@ -13,7 +13,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "mvn' -Dmaven.test.failure.ignore clean package"
+                sh "mvn -Dmaven.test.failure.ignore clean package"
             }
         }
         stage('results') {
