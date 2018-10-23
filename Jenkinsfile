@@ -1,10 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-
-    environment {
-        mvnHome = tool 'M3'
+    agent {
+        dockerfile {
+            filename 'Dockerfile.build'
+        }
     }
-
     stages {
         stage('prepare') {
             steps {
@@ -14,7 +13,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+                sh "mvn' -Dmaven.test.failure.ignore clean package"
             }
         }
         stage('results') {

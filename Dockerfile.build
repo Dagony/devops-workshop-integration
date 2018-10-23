@@ -1,0 +1,7 @@
+FROM maven:3.5
+
+RUN apt-get update
+RUN apt-get upgrade
+
+RUN apt-get install perl
+RUN apt-get install libimage-exiftool-perl
