@@ -2,10 +2,10 @@ pipeline {
     agent { docker { image 'maven:3.3.3' } }
     stages {
         stage('prepare') {
+            mvnHome = tool 'M3'
             steps {
                 git 'https://github.com/Dagony/devops-workshop-integration.git'
 
-                mvnHome = tool 'M3'
             }
         }
         stage('build') {
